@@ -63,7 +63,7 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
 
     /* =====================
 
@@ -72,8 +72,9 @@
     ===================== */
     var dataFiltered = [];
     for (var i = 0; i < data.length; i++ ){
-      if (data[i][3] > 20) {
+      if (parseInt(data[i][3]) > 20) {
         dataFiltered.push(data[i]);
+
       }
     }
     console.log(data);
@@ -106,7 +107,7 @@
 
     for (var i = 0; i < dataFiltered.length; i++)
       {
-        L.marker([dataFiltered[i][1],dataFiltered[i][0]]).addTo(map);
+        L.marker([parseFloat(dataFiltered[i][1]),parseFloat(dataFiltered[i][0])]).bindPopup(dataFiltered[i][3]).addTo(map);
       }
 
 

@@ -20,20 +20,33 @@
     Believe it or not, this is a common programming challenge in job interviews.
 
     ===================== */
+    var x = [];
+      for (var i=1;i<=100;i++){
+        x.push(i)
+      }
 
-    /* =====================
+      for (var i = 0; i < 100; i++) {
 
-    Start code
+                if (x[i]%15 == 0) {
+                  console.log("BuzzFizz");
+                }
 
-    ===================== */
+                if (x[i]%5 == 0) {
+                  console.log("Fizz");
+                }
+
+                if (x[i]%3 == 0) {
+                  console.log("Buzz");
+                }
+
+                if (x[i]%15 != 0) {
+                  console.log(x[i]);
+                }
+
+                }
 
 
 
-    /* =====================
-
-    End code
-
-    ===================== */
 
     </script>
   </body>

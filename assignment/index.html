@@ -48,27 +48,46 @@
        Remember: functions are meant to facilitate code comprehension and reuse. Try to use them to organize your code.
       ===================== */
 
+      var jsonToCsv = function(json) { return(json); };
 
-      /* =====================
+      var healthCentersObject = jsonToCsv(healthCenters);
+      console.log(healthCentersObject);
 
-      Start code
+      var nestedArray = [];
+      nestedArray.push(Object.keys(healthCentersObject[0]));
+      console.log(nestedArray);
 
-      ===================== */
-
-      var jsonToCsv = function(json) { console.log(json); };
-
-
-      var addMarkers = function(map) {};
-
-      /* =====================
-
-      End code
-
-      ===================== */
+      for (var i = 0; i < healthCentersObject.length; i++)
+        {
+          valueArray = Object.values(healthCentersObject[i])
+          nestedArray.push(valueArray.slice(0,2));
+        }
+      console.log(nestedArray);
 
 
-      jsonToCsv(healthCenters);
-      addMarkers(map);
+      var labels = [];
+      for (var i = 0; i < healthCentersObject.length; i++)
+        {
+          valueArray = Object.values(healthCentersObject[i])
+          labels.push(valueArray[3]);
+        }
+
+      console.log(labels);
+
+
+      var addMarkers = function(map, xy, l) {
+        for (var i = 1; i < (xy.length-1); i++)
+          {
+            L.marker([xy[i][1], xy[i][0]]).bindPopup(l[i-1]).addTo(map);
+          }
+      };
+
+      addMarkers(map, nestedArray, labels);
+
+
+
+
+
     </script>
     <!--Your code ends here-->
   </body>

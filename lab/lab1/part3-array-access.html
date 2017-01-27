@@ -75,9 +75,13 @@
 
     ===================== */
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    var restaurantData = [[39.9222, -75.1654, "Wawa"],[39.9500, -75.1987, "Cosi"],[39.9422, -75.1453, "Starbucks"]]
+
+    for (var i = 0; i < restaurantData.length; i++) {
+    marker = new L.marker([restaurantData[i][0],restaurantData[i][1]])
+      .bindPopup(restaurantData[i][0])
+      .addTo(map);
+  }
 
     /* =====================
 
